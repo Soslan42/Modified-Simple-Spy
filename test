@@ -2,7 +2,7 @@ if getgenv().SimpleSpyExecuted and type(getgenv().SimpleSpyShutdown) == "functio
     getgenv().SimpleSpyShutdown()
 end
 
--- Default settings (language removed)
+-- Настройки по умолчанию
 local realconfigs = {
     -- Основные
     logcheckcaller = false,
@@ -107,10 +107,10 @@ local realconfigs = {
     optimize_suggestions = false,
 }
 
--- Presets (no language)
+-- Пресеты настроек
 local presets = {
     {
-        name = "Minimalism",
+        name = "Minimalist",
         settings = {
             gui_scale = 0.8,
             animations_enabled = false,
@@ -119,7 +119,7 @@ local presets = {
         }
     },
     {
-        name = "Maximum Information",
+        name = "Maximum Info",
         settings = {
             advanced_info = true,
             generate_comments = true,
@@ -146,7 +146,7 @@ local presets = {
         }
     },
     {
-        name = "Server Monitoring",
+        name = "Server Monitor",
         settings = {
             log_server_events = true,
             log_local_remotes = false,
@@ -156,35 +156,35 @@ local presets = {
     }
 }
 
--- Localization (English only)
+-- Локализация (только английский)
 local localization = {
     en = {
-        -- Basic buttons
+        -- Основные кнопки
         copy_code = "Copy Code",
         copy_remote = "Copy Remote",
         run_code = "Run Code",
         get_script = "Get Script",
         function_info = "Function Info",
-        clear_logs = "Clr Logs",
+        clear_logs = "Clear Logs",
         decompile = "Decompile",
         disable_info = "Disable Info",
         autoblock = "Autoblock",
-        logcheckcaller = "Logcheckcaller",
+        logcheckcaller = "Log Check Caller",
         advanced_info = "Advanced Info",
         spam_code = "Spam Code",
         stop_spam = "Stop Spam",
         
-        -- Exclude/block buttons
-        exclude_i = "Exclude (i)",
-        exclude_n = "Exclude (n)",
-        clear_blacklist = "Clr Blacklist",
+        -- Кнопки исключения/блокировки
+        exclude_i = "Exclude",
+        exclude_n = "Exclude",
+        clear_blacklist = "Clear Blacklist",
         ignore_event = "Ignore Call",
         clear_ignored_calls = "Clear Ignored",
-        block_i = "Block (i)",
-        block_n = "Block (n)",
-        clear_blocklist = "Clr Blocklist",
+        block_i = "Block",
+        block_n = "Block",
+        clear_blocklist = "Clear Blocklist",
         
-        -- Tooltips
+        -- Всплывающие подсказки
         copy_code_desc = "Click to copy code",
         copy_remote_desc = "Click to copy the path of the remote",
         run_code_desc = "Click to execute code",
@@ -196,8 +196,12 @@ local localization = {
         stop_spam_desc = "Stops spamming",
         ignore_event_desc = "Ignore only this specific call (with current arguments)",
         clear_ignored_calls_desc = "Clear all ignored calls",
+        exclude_i_desc = "Exclude this remote instance",
+        exclude_n_desc = "Exclude all remotes with this name",
+        block_i_desc = "Block this remote instance",
+        block_n_desc = "Block all remotes with this name",
         
-        -- Settings
+        -- Настройки
         settings = "Settings",
         theme = "Theme",
         dark = "Dark",
@@ -208,18 +212,19 @@ local localization = {
         save = "Save",
         load = "Load",
         
-        -- Settings categories
+        -- Категории настроек
         general = "General",
         appearance = "Appearance",
         logging = "Logging",
         functionality = "Functionality",
         hotkeys = "Hotkeys",
-        export_import = "Export/Import",
+        export_import = "Export / Import",
         integrations = "Integrations",
         advanced = "Advanced",
         personal = "Personal",
         
-        -- New settings
+        -- Настройки (полный список)
+        theme = "Theme",
         gui_scale = "GUI Scale",
         transparency = "Transparency",
         background_blur = "Background Blur",
@@ -228,16 +233,21 @@ local localization = {
         animation_speed = "Animation Speed",
         log_server_events = "Log Server Events",
         log_local_remotes = "Log Local Remotes",
+        log_remote_functions = "Log Remote Functions",
+        log_remote_events = "Log Remote Events",
+        log_unreliable_events = "Log Unreliable Events",
         auto_copy_on_select = "Auto Copy on Select",
         auto_scroll_new = "Auto Scroll to New",
         auto_select_latest = "Auto Select Latest",
         max_logs_display = "Max Logs Display",
+        max_history_size = "Max History Size",
+        log_timeout = "Log Timeout (seconds)",
         safe_mode = "Safe Mode",
         prompt_on_execute = "Prompt on Execute",
         sandbox_execution = "Sandbox Execution",
         notifications_enabled = "Notifications",
         sound_notifications = "Sound Notifications",
-        toast_duration = "Toast Duration",
+        toast_duration = "Toast Duration (seconds)",
         auto_decompile = "Auto Decompile",
         auto_generate_script = "Auto Generate Script",
         preserve_session = "Preserve Session",
@@ -245,31 +255,32 @@ local localization = {
         indent_size = "Indent Size",
         max_line_length = "Max Line Length",
         syntax_highlighting = "Syntax Highlighting",
-        theme_highlight = "Theme Highlight",
+        theme_highlight = "Highlight Theme",
         generate_comments = "Generate Comments",
         optimize_code = "Optimize Code",
         include_debug_info = "Include Debug Info",
         toggle_gui = "Toggle GUI",
         toggle_spy = "Toggle Spy",
-        clear_logs_key = "Clear Logs",
-        copy_selected_key = "Copy Selected",
-        execute_selected_key = "Execute Selected",
-        search_logs_key = "Search Logs",
-        quick_settings_key = "Quick Settings",
+        clear_logs = "Clear Logs",
+        copy_selected = "Copy Selected",
+        execute_selected = "Execute Selected",
+        search_logs = "Search Logs",
+        quick_settings = "Quick Settings",
         export_format = "Export Format",
         include_timestamps = "Include Timestamps",
         compress_exports = "Compress Exports",
         auto_export = "Auto Export",
-        export_interval = "Export Interval",
+        export_interval = "Export Interval (seconds)",
         export_location = "Export Location",
-        discord_webhook = "Discord Webhook",
+        discord_webhook = "Discord Webhook URL",
         discord_notifications = "Discord Notifications",
         custom_scripts_enabled = "Custom Scripts",
+        script_folder = "Script Folder",
         enable_api = "Enable API",
         api_port = "API Port",
         performance_mode = "Performance Mode",
         cache_results = "Cache Results",
-        memory_limit = "Memory Limit",
+        memory_limit = "Memory Limit (MB)",
         debug_mode = "Debug Mode",
         log_errors = "Log Errors",
         verbose_logging = "Verbose Logging",
@@ -278,7 +289,7 @@ local localization = {
         username = "Username",
         avatar_enabled = "Show Avatar",
         track_statistics = "Track Statistics",
-        show_stats = "Show Stats",
+        show_stats = "Show Statistics",
         custom_logo = "Custom Logo",
         custom_sounds = "Custom Sounds",
         auto_detect_game = "Auto Detect Game",
@@ -288,7 +299,7 @@ local localization = {
         suggest_blocks = "Suggest Blocks",
         optimize_suggestions = "Optimize Suggestions",
         
-        -- Setting values
+        -- Значения настроек
         low = "Low",
         balanced = "Balanced",
         high = "High",
@@ -299,7 +310,7 @@ local localization = {
         json = "JSON",
         txt = "Text",
         
-        -- Status messages
+        -- Статусные сообщения
         copied = "Copied successfully!",
         no_remote = "No remote selected!",
         executing = "Executing...",
@@ -332,8 +343,7 @@ local localization = {
         preset_applied = "Preset applied: %s",
         server_event_logged = "Server event logged!",
         
-        -- Setting descriptions
-        language_desc = "Select interface language",
+        -- Настройки описания
         theme_desc = "Select interface theme",
         gui_scale_desc = "Adjust GUI size",
         transparency_desc = "Set background transparency",
@@ -343,10 +353,15 @@ local localization = {
         animation_speed_desc = "Set animation speed",
         log_server_events_desc = "Log events fired from server",
         log_local_remotes_desc = "Log remotes fired by client",
+        log_remote_functions_desc = "Log RemoteFunction calls",
+        log_remote_events_desc = "Log RemoteEvent calls",
+        log_unreliable_events_desc = "Log UnreliableRemoteEvent calls",
         auto_copy_on_select_desc = "Automatically copy code when selecting",
         auto_scroll_new_desc = "Auto scroll to new logs",
         auto_select_latest_desc = "Auto select latest log",
         max_logs_display_desc = "Maximum logs to display",
+        max_history_size_desc = "Maximum history size",
+        log_timeout_desc = "Time in seconds to keep logs",
         safe_mode_desc = "Block potentially dangerous calls",
         prompt_on_execute_desc = "Ask confirmation before execution",
         sandbox_execution_desc = "Run code in sandbox",
@@ -364,8 +379,47 @@ local localization = {
         generate_comments_desc = "Generate comments in code",
         optimize_code_desc = "Optimize generated code",
         include_debug_info_desc = "Include debug information",
+        toggle_gui_desc = "Key to toggle the GUI",
+        toggle_spy_desc = "Key to toggle spy on/off",
+        clear_logs_desc = "Key to clear logs",
+        copy_selected_desc = "Key to copy selected",
+        execute_selected_desc = "Key to execute selected",
+        search_logs_desc = "Key to search logs",
+        quick_settings_desc = "Key to open quick settings",
+        export_format_desc = "Format to export logs",
+        include_timestamps_desc = "Include timestamps in export",
+        compress_exports_desc = "Compress exported files",
+        auto_export_desc = "Automatically export logs",
+        export_interval_desc = "Auto export interval (seconds)",
+        export_location_desc = "Folder to save exports",
+        discord_webhook_desc = "Discord webhook URL for notifications",
+        discord_notifications_desc = "Send notifications to Discord",
+        custom_scripts_enabled_desc = "Enable custom scripts",
+        script_folder_desc = "Folder for custom scripts",
+        enable_api_desc = "Enable local API server",
+        api_port_desc = "Port for API server",
+        performance_mode_desc = "Performance mode (low/balanced/high)",
+        cache_results_desc = "Cache results for performance",
+        memory_limit_desc = "Memory limit in MB",
+        debug_mode_desc = "Enable debug mode",
+        log_errors_desc = "Log errors to console",
+        verbose_logging_desc = "Verbose logging for debugging",
+        experimental_features_desc = "Enable experimental features",
+        beta_updates_desc = "Enable beta updates",
+        username_desc = "Your username",
+        avatar_enabled_desc = "Show avatar in interface",
+        track_statistics_desc = "Track usage statistics",
+        show_stats_desc = "Show statistics",
+        custom_logo_desc = "Use custom logo",
+        custom_sounds_desc = "Use custom sounds",
+        auto_detect_game_desc = "Auto detect game type",
+        game_specific_profiles_desc = "Use game specific profiles",
+        smart_filtering_desc = "Smart filtering of logs",
+        learn_from_patterns_desc = "Learn from patterns",
+        suggest_blocks_desc = "Suggest blocks",
+        optimize_suggestions_desc = "Optimize suggestions",
         
-        -- Other
+        -- Прочие
         settings_title = "SimpleSpy Settings",
         presets = "Presets",
         search_settings = "Search settings...",
@@ -379,7 +433,7 @@ local localization = {
     }
 }
 
--- Simplified translation function (always English)
+-- Функция для получения локализованного текста (только английский)
 local function t(key)
     return localization.en[key] or key
 end
@@ -616,7 +670,7 @@ local ImageLabel_2 = Create("ImageLabel",{Parent = MaximizeButton,BackgroundColo
 local MinimizeButton = Create("TextButton",{Parent = TopBar,BackgroundColor3 = Color3.new(0.145098, 0.141176, 0.14902),BorderSizePixel = 0,Position = UDim2.new(1, -57, 0, 0),Size = UDim2.new(0, 19, 0, 19),Font = Enum.Font.SourceSans,Text = "",TextColor3 = Color3.new(0, 0, 0),TextSize = 14})
 local ImageLabel_3 = Create("ImageLabel",{Parent = MinimizeButton,BackgroundColor3 = Color3.new(1, 1, 1),BackgroundTransparency = 1,Position = UDim2.new(0, 5, 0, 5),Size = UDim2.new(0, 9, 0, 9),Image = "http://www.roblox.com/asset/?id=5597105827"})
 
--- SETTINGS BUTTON
+-- КНОПКА НАСТРОЕК
 local SettingsButton = Create("TextButton",{
     Parent = TopBar,
     BackgroundColor3 = Color3.new(0.145098, 0.141176, 0.14902),
@@ -641,7 +695,7 @@ local SettingsImage = Create("ImageLabel",{
 local ToolTip = Create("Frame",{Parent = SimpleSpy3,BackgroundColor3 = Color3.fromRGB(26, 26, 26),BackgroundTransparency = 0.1,BorderColor3 = Color3.new(1, 1, 1),Size = UDim2.new(0, 200, 0, 50),ZIndex = 3,Visible = false})
 local TextLabel = Create("TextLabel",{Parent = ToolTip,BackgroundColor3 = Color3.new(1, 1, 1),BackgroundTransparency = 1,Position = UDim2.new(0, 2, 0, 2),Size = UDim2.new(0, 196, 0, 46),ZIndex = 3,Font = Enum.Font.SourceSans,Text = "This is some slightly longer text.",TextColor3 = Color3.new(1, 1, 1),TextSize = 14,TextWrapped = true,TextXAlignment = Enum.TextXAlignment.Left,TextYAlignment = Enum.TextYAlignment.Top})
 
--- SETTINGS WINDOW (without language selector)
+-- ОКНО НАСТРОЕК (ПОЛНОЕ С ВКЛАДКАМИ)
 local SettingsWindow = Create("Frame", {
     Parent = SimpleSpy3,
     BackgroundColor3 = Color3.fromRGB(37, 36, 38),
@@ -687,7 +741,7 @@ local SettingsCloseButton = Create("TextButton", {
     ZIndex = 102
 })
 
--- Settings tabs
+-- Вкладки настроек
 local TabsContainer = Create("Frame", {
     Parent = SettingsWindow,
     BackgroundColor3 = Color3.fromRGB(40, 40, 40),
@@ -701,6 +755,7 @@ local TabButtons = {}
 local TabContents = {}
 local currentTab = "general"
 
+-- Список вкладок
 local tabNames = {
     "general",
     "appearance", 
@@ -713,6 +768,7 @@ local tabNames = {
     "personal"
 }
 
+-- Создаем вкладки
 for i, tabName in ipairs(tabNames) do
     local tabButton = Create("TextButton", {
         Parent = TabsContainer,
@@ -744,10 +800,13 @@ for i, tabName in ipairs(tabNames) do
     TabContents[tabName] = tabContent
     
     tabButton.MouseButton1Click:Connect(function()
+        -- Скрыть все вкладки
         for name, content in pairs(TabContents) do
             content.Visible = false
         end
+        -- Показать выбранную
         TabContents[tabName].Visible = true
+        -- Обновить цвета кнопок
         for name, button in pairs(TabButtons) do
             button.BackgroundColor3 = name == tabName and Color3.fromRGB(60, 60, 80) or Color3.fromRGB(50, 50, 50)
         end
@@ -755,7 +814,7 @@ for i, tabName in ipairs(tabNames) do
     end)
 end
 
--- Control buttons
+-- Кнопки управления настройками
 local ControlButtons = Create("Frame", {
     Parent = SettingsWindow,
     BackgroundTransparency = 1,
@@ -829,7 +888,7 @@ local LoadButton = Create("TextButton", {
     ZIndex = 102
 })
 
--- Search box
+-- Поиск настроек
 local SearchBox = Create("TextBox", {
     Parent = SettingsWindow,
     BackgroundColor3 = Color3.fromRGB(60, 60, 60),
@@ -844,7 +903,7 @@ local SearchBox = Create("TextBox", {
     ZIndex = 101
 })
 
--- Presets frame
+-- Пресеты
 local PresetsFrame = Create("Frame", {
     Parent = SettingsWindow,
     BackgroundColor3 = Color3.fromRGB(50, 50, 50),
@@ -881,14 +940,27 @@ local PresetsDropdown = Create("TextButton", {
     ZIndex = 102
 })
 
--- Temporary settings
+-- Временные настройки для редактирования
 local tempSettings = {}
 for k, v in pairs(realconfigs) do
     tempSettings[k] = v
 end
 
+-- Хранилище элементов настроек
 local settingElements = {}
 
+-- Переменная для хранения текущего открытого меню (чтобы закрывать предыдущее)
+local currentDropdownMenu = nil
+
+-- Функция для закрытия текущего меню
+local function closeCurrentDropdownMenu()
+    if currentDropdownMenu then
+        currentDropdownMenu:Destroy()
+        currentDropdownMenu = nil
+    end
+end
+
+-- Функция для создания элемента настройки
 local function createSettingElement(parent, settingName, settingType, options)
     local element = Create("Frame", {
         Parent = parent,
@@ -949,6 +1021,10 @@ local function createSettingElement(parent, settingName, settingType, options)
         })
         
         control.MouseButton1Click:Connect(function()
+            -- Закрываем предыдущее меню
+            closeCurrentDropdownMenu()
+            
+            -- Создаем новое меню
             local optionsFrame = Create("Frame", {
                 Parent = SettingsWindow,
                 BackgroundColor3 = Color3.fromRGB(50, 50, 50),
@@ -960,6 +1036,8 @@ local function createSettingElement(parent, settingName, settingType, options)
                 ZIndex = 110,
                 Visible = true
             })
+            
+            currentDropdownMenu = optionsFrame
             
             for i, option in ipairs(options) do
                 local optionButton = Create("TextButton", {
@@ -978,24 +1056,27 @@ local function createSettingElement(parent, settingName, settingType, options)
                 optionButton.MouseButton1Click:Connect(function()
                     tempSettings[settingName] = option
                     control.Text = option
-                    optionsFrame:Destroy()
+                    closeCurrentDropdownMenu()
                     updateInterfaceTexts()
                 end)
             end
             
+            -- Глобальный обработчик для закрытия при клике вне меню
             local connection
             connection = UserInputService.InputBegan:Connect(function(input)
                 if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                    if not optionsFrame or not optionsFrame.Parent then
+                        if connection then connection:Disconnect() end
+                        return
+                    end
                     local mousePos = UserInputService:GetMouseLocation()
                     local framePos = optionsFrame.AbsolutePosition
                     local frameSize = optionsFrame.AbsoluteSize
                     
                     if mousePos.X < framePos.X or mousePos.X > framePos.X + frameSize.X or
                        mousePos.Y < framePos.Y or mousePos.Y > framePos.Y + frameSize.Y then
-                        optionsFrame:Destroy()
-                        if connection then
-                            connection:Disconnect()
-                        end
+                        closeCurrentDropdownMenu()
+                        if connection then connection:Disconnect() end
                     end
                 end
             end)
@@ -1204,6 +1285,7 @@ local function createSettingElement(parent, settingName, settingType, options)
                 colorFrame:Destroy()
             end)
             
+            -- Закрываем при клике вне
             local connection
             connection = UserInputService.InputBegan:Connect(function(input)
                 if input.UserInputType == Enum.UserInputType.MouseButton1 then
@@ -1223,6 +1305,7 @@ local function createSettingElement(parent, settingName, settingType, options)
         end)
     end
     
+    -- Добавляем подсказку
     local hint = Create("TextLabel", {
         Parent = element,
         BackgroundTransparency = 1,
@@ -1241,7 +1324,9 @@ local function createSettingElement(parent, settingName, settingType, options)
     return element
 end
 
+-- Создаем элементы настроек для каждой вкладки
 local function populateSettings()
+    -- Очищаем все вкладки
     for _, tab in pairs(TabContents) do
         for _, child in ipairs(tab:GetChildren()) do
             if child:IsA("Frame") then
@@ -1250,7 +1335,7 @@ local function populateSettings()
         end
     end
     
-    -- General settings (language removed)
+    -- Основные настройки
     local generalContainer = Create("Frame", {
         Parent = TabContents.general,
         BackgroundTransparency = 1,
@@ -1263,11 +1348,10 @@ local function populateSettings()
         Padding = UDim.new(0, 5)
     })
     
-    -- No language option
     createSettingElement(generalContainer, "theme", "dropdown", {"dark", "light"})
     createSettingElement(generalContainer, "gui_scale", "slider", {min = 0.5, max = 2, step = 0.1})
     
-    -- Appearance
+    -- Внешний вид
     local appearanceContainer = Create("Frame", {
         Parent = TabContents.appearance,
         BackgroundTransparency = 1,
@@ -1286,7 +1370,7 @@ local function populateSettings()
     createSettingElement(appearanceContainer, "animations_enabled", "toggle")
     createSettingElement(appearanceContainer, "animation_speed", "slider", {min = 0.5, max = 3, step = 0.1})
     
-    -- Logging
+    -- Настройки логирования
     local loggingContainer = Create("Frame", {
         Parent = TabContents.logging,
         BackgroundTransparency = 1,
@@ -1311,7 +1395,7 @@ local function populateSettings()
     createSettingElement(loggingContainer, "max_history_size", "slider", {min = 100, max = 2000, step = 50})
     createSettingElement(loggingContainer, "log_timeout", "slider", {min = 10, max = 300, step = 10})
     
-    -- Functionality
+    -- Функциональные настройки
     local functionalityContainer = Create("Frame", {
         Parent = TabContents.functionality,
         BackgroundTransparency = 1,
@@ -1334,7 +1418,7 @@ local function populateSettings()
     createSettingElement(functionalityContainer, "auto_generate_script", "toggle")
     createSettingElement(functionalityContainer, "preserve_session", "toggle")
     
-    -- Code settings
+    -- Настройки кода
     local codeContainer = Create("Frame", {
         Parent = TabContents.advanced,
         BackgroundTransparency = 1,
@@ -1356,7 +1440,7 @@ local function populateSettings()
     createSettingElement(codeContainer, "optimize_code", "toggle")
     createSettingElement(codeContainer, "include_debug_info", "toggle")
     
-    -- Hotkeys
+    -- Горячие клавиши
     local hotkeysContainer = Create("Frame", {
         Parent = TabContents.hotkeys,
         BackgroundTransparency = 1,
@@ -1377,7 +1461,7 @@ local function populateSettings()
     createSettingElement(hotkeysContainer, "search_logs", "text")
     createSettingElement(hotkeysContainer, "quick_settings", "text")
     
-    -- Export/Import
+    -- Экспорт/Импорт
     local exportContainer = Create("Frame", {
         Parent = TabContents.export_import,
         BackgroundTransparency = 1,
@@ -1397,7 +1481,7 @@ local function populateSettings()
     createSettingElement(exportContainer, "export_interval", "slider", {min = 60, max = 3600, step = 60})
     createSettingElement(exportContainer, "export_location", "text")
     
-    -- Integrations
+    -- Интеграции
     local integrationsContainer = Create("Frame", {
         Parent = TabContents.integrations,
         BackgroundTransparency = 1,
@@ -1417,7 +1501,7 @@ local function populateSettings()
     createSettingElement(integrationsContainer, "enable_api", "toggle")
     createSettingElement(integrationsContainer, "api_port", "slider", {min = 1024, max = 65535, step = 1})
     
-    -- Personal
+    -- Персональные настройки
     local personalContainer = Create("Frame", {
         Parent = TabContents.personal,
         BackgroundTransparency = 1,
@@ -1437,13 +1521,13 @@ local function populateSettings()
     createSettingElement(personalContainer, "custom_logo", "toggle")
     createSettingElement(personalContainer, "custom_sounds", "toggle")
     
-    -- Update canvas sizes
+    -- Обновляем размер канваса для каждой вкладки
     for tabName, tab in pairs(TabContents) do
         local container = tab:FindFirstChildOfClass("Frame")
         if container then
             local layout = container:FindFirstChildOfClass("UIListLayout")
             if layout then
-                wait()
+                task.wait()
                 local contentSize = layout.AbsoluteContentSize.Y
                 tab.CanvasSize = UDim2.new(0, 0, 0, contentSize + 50)
             end
@@ -1451,6 +1535,7 @@ local function populateSettings()
     end
 end
 
+-- Функция для обновления всех текстов интерфейса
 local function updateInterfaceTexts()
     SettingsTitle.Text = t("settings_title")
     SettingsCloseButton.Text = "X"
@@ -1463,10 +1548,12 @@ local function updateInterfaceTexts()
     PresetsLabel.Text = t("presets") .. ":"
     PresetsDropdown.Text = t("presets")
     
+    -- Обновляем текст вкладок
     for tabName, button in pairs(TabButtons) do
         button.Text = t(tabName)
     end
     
+    -- Обновляем текст элементов настроек
     for settingName, elementData in pairs(settingElements) do
         if elementData.label then
             elementData.label.Text = t(settingName)
@@ -1481,6 +1568,7 @@ local function updateInterfaceTexts()
         end
     end
     
+    -- Обновляем подсказки
     for settingName, elementData in pairs(settingElements) do
         local hint = elementData.element:FindFirstChildOfClass("TextLabel")
         if hint then
@@ -1488,6 +1576,7 @@ local function updateInterfaceTexts()
         end
     end
     
+    -- Обновляем кнопки в основном интерфейсе
     for _, child in pairs(ScrollingFrame:GetChildren()) do
         if child.Name == "FunctionTemplate" then
             local textLabel = child:FindFirstChild("Text")
@@ -1503,19 +1592,16 @@ local function updateInterfaceTexts()
     end
 end
 
-local function applyVisualSettings()
-    local scale = realconfigs.gui_scale
-    Background.Size = UDim2.new(0, 450 * scale, 0, 268 * scale)
-    
-    Background.BackgroundTransparency = realconfigs.transparency
-    
-    local accent = realconfigs.accent_color
-    selectedColor = accent
-    
+-- Функция для применения визуальных настроек ко всем UI элементам
+local function updateAllUITheme()
     local theme = realconfigs.theme
+    local accent = realconfigs.accent_color
+    local transparency = realconfigs.transparency
+    local blur = realconfigs.background_blur
+
     if theme == "light" then
         Background.BackgroundColor3 = Color3.fromRGB(245, 245, 245)
-        Background.BackgroundTransparency = realconfigs.transparency
+        Background.BackgroundTransparency = transparency
         LeftPanel.BackgroundColor3 = Color3.fromRGB(220, 220, 220)
         RightPanel.BackgroundColor3 = Color3.fromRGB(230, 230, 230)
         TopBar.BackgroundColor3 = Color3.fromRGB(240, 240, 240)
@@ -1531,6 +1617,7 @@ local function applyVisualSettings()
         TextLabel.TextColor3 = Color3.fromRGB(30, 30, 30)
         ToolTip.BorderColor3 = Color3.fromRGB(180, 180, 180)
         
+        -- Настройки
         for tabName, button in pairs(TabButtons) do
             button.BackgroundColor3 = currentTab == tabName and Color3.fromRGB(80, 80, 100) or Color3.fromRGB(200, 200, 200)
             button.TextColor3 = Color3.fromRGB(30, 30, 30)
@@ -1544,8 +1631,9 @@ local function applyVisualSettings()
         SearchBox.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
         SearchBox.TextColor3 = Color3.fromRGB(30, 30, 30)
     else
+        -- Темная тема
         Background.BackgroundColor3 = Color3.new(1, 1, 1)
-        Background.BackgroundTransparency = 1
+        Background.BackgroundTransparency = transparency
         LeftPanel.BackgroundColor3 = Color3.fromRGB(53, 52, 55)
         RightPanel.BackgroundColor3 = Color3.fromRGB(37, 36, 38)
         TopBar.BackgroundColor3 = Color3.fromRGB(37, 35, 38)
@@ -1561,6 +1649,7 @@ local function applyVisualSettings()
         TextLabel.TextColor3 = Color3.new(1, 1, 1)
         ToolTip.BorderColor3 = Color3.new(1, 1, 1)
         
+        -- Настройки
         for tabName, button in pairs(TabButtons) do
             button.BackgroundColor3 = currentTab == tabName and Color3.fromRGB(60, 60, 80) or Color3.fromRGB(50, 50, 50)
             button.TextColor3 = Color3.new(1, 1, 1)
@@ -1575,23 +1664,36 @@ local function applyVisualSettings()
         SearchBox.TextColor3 = Color3.new(0.8, 0.8, 0.8)
     end
     
-    if realconfigs.background_blur then
+    -- Акцентный цвет для выделенных элементов
+    selectedColor = accent
+    
+    -- Размытие фона
+    if blur then
         if not Background:FindFirstChild("BlurEffect") then
-            local blur = Instance.new("BlurEffect")
-            blur.Name = "BlurEffect"
-            blur.Size = 10
-            blur.Parent = Background
+            local blurEffect = Instance.new("BlurEffect")
+            blurEffect.Name = "BlurEffect"
+            blurEffect.Size = 10
+            blurEffect.Parent = Background
         end
     else
-        local blur = Background:FindFirstChild("BlurEffect")
-        if blur then
-            blur:Destroy()
+        local blurEffect = Background:FindFirstChild("BlurEffect")
+        if blurEffect then
+            blurEffect:Destroy()
         end
     end
     
+    -- Обновляем размеры из-за масштаба
+    local scale = realconfigs.gui_scale
+    Background.Size = UDim2.new(0, 450 * scale, 0, 268 * scale)
     bringBackOnResize()
 end
 
+-- Функция для применения визуальных настроек
+local function applyVisualSettings()
+    updateAllUITheme()
+end
+
+-- Функция для перетаскивания окна настроек
 local function setupSettingsDrag()
     local dragging
     local dragInput
@@ -1631,40 +1733,59 @@ local function setupSettingsDrag()
     end)
 end
 
+-- Функция для открытия/закрытия настроек
 local function toggleSettings()
     if SettingsWindow.Visible then
         SettingsWindow.Visible = false
+        closeCurrentDropdownMenu()
+        -- Сбрасываем временные настройки
         for k, v in pairs(realconfigs) do
             tempSettings[k] = v
         end
     else
+        -- Загружаем текущие настройки во временные
         for k, v in pairs(realconfigs) do
             tempSettings[k] = v
         end
         
+        -- Заполняем настройки
         populateSettings()
         updateInterfaceTexts()
         
+        -- Показываем окно
         SettingsWindow.Visible = true
         SettingsWindow.ZIndex = 100
         
+        -- Устанавливаем позицию по центру
         local viewportSize = workspace.CurrentCamera.ViewportSize
         SettingsWindow.Position = UDim2.new(0.5, -325, 0.5, -200)
     end
 end
 
+-- Функция для применения настроек
 local function applySettings()
+    -- Копируем временные настройки в реальные
     for k, v in pairs(tempSettings) do
         realconfigs[k] = v
     end
     
+    -- Применяем визуальные настройки
     applyVisualSettings()
+    
+    -- Обновляем интерфейс
     updateInterfaceTexts()
-    toggleSettings()
+    
+    -- Закрываем окно настроек
+    SettingsWindow.Visible = false
+    closeCurrentDropdownMenu()
+    
+    -- Показываем сообщение
     TextLabel.Text = t("settings_saved")
 end
 
+-- Функция для сброса настроек
 local function resetSettings()
+    -- Сбрасываем к значениям по умолчанию
     local defaultConfigs = {
         theme = "dark",
         gui_scale = 1.0,
@@ -1746,12 +1867,14 @@ local function resetSettings()
         tempSettings[k] = v
     end
     
+    -- Обновляем интерфейс
     populateSettings()
     updateInterfaceTexts()
     
     TextLabel.Text = t("settings_reset")
 end
 
+-- Функция для сохранения настроек в файл
 local function saveSettings()
     if isfile and writefile then
         local settingsStr = jsone(realconfigs)
@@ -1765,6 +1888,7 @@ local function saveSettings()
     end
 end
 
+-- Функция для загрузки настроек из файла
 local function loadSettings()
     if isfile and readfile then
         if isfile("SimpleSpy/settings.json") then
@@ -1790,6 +1914,7 @@ local function loadSettings()
     end
 end
 
+-- Функция для применения пресета
 local function applyPreset(presetName)
     for _, preset in ipairs(presets) do
         if preset.name == presetName then
@@ -1806,122 +1931,43 @@ local function applyPreset(presetName)
     end
 end
 
--- Connect settings UI buttons
-ApplyButton.MouseButton1Click:Connect(applySettings)
-CancelButton.MouseButton1Click:Connect(toggleSettings)
-ResetButton.MouseButton1Click:Connect(resetSettings)
-SaveButton.MouseButton1Click:Connect(saveSettings)
-LoadButton.MouseButton1Click:Connect(loadSettings)
-SettingsCloseButton.MouseButton1Click:Connect(toggleSettings)
-
-setupSettingsDrag()
-
-PresetsDropdown.MouseButton1Click:Connect(function()
-    local optionsFrame = Create("Frame", {
-        Parent = SettingsWindow,
-        BackgroundColor3 = Color3.fromRGB(50, 50, 50),
-        BorderSizePixel = 1,
-        BorderColor3 = Color3.fromRGB(80, 80, 80),
-        Position = UDim2.new(0, PresetsDropdown.AbsolutePosition.X - SettingsWindow.AbsolutePosition.X, 
-                             0, PresetsDropdown.AbsolutePosition.Y - SettingsWindow.AbsolutePosition.Y + PresetsDropdown.AbsoluteSize.Y),
-        Size = UDim2.new(0, PresetsDropdown.AbsoluteSize.X, 0, #presets * 30),
-        ZIndex = 110,
-        Visible = true
-    })
-    
-    for i, preset in ipairs(presets) do
-        local presetButton = Create("TextButton", {
-            Parent = optionsFrame,
-            BackgroundColor3 = Color3.fromRGB(70, 70, 70),
-            BorderSizePixel = 0,
-            Position = UDim2.new(0, 0, 0, (i-1)*30),
-            Size = UDim2.new(1, 0, 0, 30),
-            Font = Enum.Font.SourceSans,
-            Text = preset.name,
-            TextColor3 = Color3.new(1, 1, 1),
-            TextSize = 12,
-            ZIndex = 111
-        })
-        
-        presetButton.MouseButton1Click:Connect(function()
-            applyPreset(preset.name)
-            optionsFrame:Destroy()
-        end)
-    end
-    
-    local connection
-    connection = UserInputService.InputBegan:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseButton1 then
-            local mousePos = UserInputService:GetMouseLocation()
-            local framePos = optionsFrame.AbsolutePosition
-            local frameSize = optionsFrame.AbsoluteSize
-            
-            if mousePos.X < framePos.X or mousePos.X > framePos.X + frameSize.X or
-               mousePos.Y < framePos.Y or mousePos.Y > framePos.Y + frameSize.Y then
-                optionsFrame:Destroy()
-                if connection then
-                    connection:Disconnect()
-                end
-            end
-        end
-    end)
-end)
-
-SearchBox.FocusLost:Connect(function()
-    local searchText = SearchBox.Text:lower()
-    if searchText == "" or searchText == t("search_settings"):lower() then
-        for _, elementData in pairs(settingElements) do
-            elementData.element.Visible = true
-        end
-    else
-        for settingName, elementData in pairs(settingElements) do
-            local displayName = t(settingName):lower()
-            local description = t(settingName .. "_desc") or ""
-            description = description:lower()
-            
-            if displayName:find(searchText, 1, true) or description:find(searchText, 1, true) then
-                elementData.element.Visible = true
-            else
-                elementData.element.Visible = false
-            end
-        end
-    end
-end)
-
-local function onSettingsButtonHover()
-    TweenService:Create(SettingsButton, TweenInfo.new(0.2), {BackgroundColor3 = realconfigs.accent_color}):Play()
-end
-
-local function onSettingsButtonUnhover()
-    local theme = realconfigs.theme
-    if theme == "light" then
-        TweenService:Create(SettingsButton, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(220, 220, 220)}):Play()
-    else
-        TweenService:Create(SettingsButton, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(37, 36, 38)}):Play()
-    end
-end
-
 -------------------------------------------------------------------------------
 
 local selectedColor = Color3.new(0.321569, 0.333333, 1)
 local deselectedColor = Color3.new(0.8, 0.8, 0.8)
+--- So things are descending
 local layoutOrderNum = 999999999
+--- Whether or not the gui is closing
 local mainClosing = false
+--- Whether or not the gui is closed (defaults to false)
 local closed = false
+--- Whether or not the sidebar is closing
 local sideClosing = false
+--- Whether or not the sidebar is closed (defaults to true but opens automatically on remote selection)
 local sideClosed = false
+--- Whether or not the code box is maximized (defaults to false)
 local maximized = false
+--- The event logs to be read from
 local logs = {}
+--- The event currently selected.Log (defaults to nil)
 local selected = nil
-local selectedEntries = {}
-local lastSelectedIndex = nil
+local selectedEntries = {} -- Хранит все выделенные ивенты
+local lastSelectedIndex = nil -- Для корректной работы Shift
+--- The blacklist (can be a string name or the Remote Instance)
 local blacklist = {}
+--- The block list (can be a string name or the Remote Instance)
 local blocklist = {}
+--- Whether or not to add getNil function
 local getNil = false
+--- Array of remotes (and original functions) connected to
 local connectedRemotes = {}
+--- True = hookfunction, false = namecall
 local toggle = false
+--- used to prevent recursives
 local prevTables = {}
+--- holds logs (for deletion)
 local remoteLogs = {}
+--- used for hookfunction
 getgenv().SIMPLESPYCONFIG_MaxRemotes = 300
 local indent = 4
 local scheduled = {}
@@ -1935,9 +1981,11 @@ local codebox
 local p
 local getnilrequired = false
 
+-- autoblock variables
 local history = {}
 local excluding = {}
 
+-- if mouse inside gui
 local mouseInGui = false
 
 local connections = {}
@@ -1946,6 +1994,7 @@ local generation = {}
 local running_threads = {}
 local originalnamecall
 
+-- Глобальная таблица для игнорирования конкретных вызовов
 local ignoredCalls = {}
 
 local remoteEvent = Instance.new("RemoteEvent",Storage)
@@ -1977,6 +2026,7 @@ if syn and identifyexecutor then
     end
 end
 
+-- Функция для создания уникального хэша вызова
 local function getCallHash(remote, args)
     local argStr = ""
     for i, arg in ipairs(args) do
@@ -2022,12 +2072,126 @@ end,function(err)
     ErrorPrompt(("An error has occured: (%s)"):format(err))
 end)
 
+-- Подключаем обработчики для кнопок настроек
+ApplyButton.MouseButton1Click:Connect(applySettings)
+CancelButton.MouseButton1Click:Connect(toggleSettings)
+ResetButton.MouseButton1Click:Connect(resetSettings)
+SaveButton.MouseButton1Click:Connect(saveSettings)
+LoadButton.MouseButton1Click:Connect(loadSettings)
+SettingsCloseButton.MouseButton1Click:Connect(function()
+    SettingsWindow.Visible = false
+    closeCurrentDropdownMenu()
+    for k, v in pairs(realconfigs) do
+        tempSettings[k] = v
+    end
+end)
+
+-- Настраиваем перетаскивание окна
+setupSettingsDrag()
+
+-- Обработчик для пресетов
+PresetsDropdown.MouseButton1Click:Connect(function()
+    closeCurrentDropdownMenu()
+    local optionsFrame = Create("Frame", {
+        Parent = SettingsWindow,
+        BackgroundColor3 = Color3.fromRGB(50, 50, 50),
+        BorderSizePixel = 1,
+        BorderColor3 = Color3.fromRGB(80, 80, 80),
+        Position = UDim2.new(0, PresetsDropdown.AbsolutePosition.X - SettingsWindow.AbsolutePosition.X, 
+                             0, PresetsDropdown.AbsolutePosition.Y - SettingsWindow.AbsolutePosition.Y + PresetsDropdown.AbsoluteSize.Y),
+        Size = UDim2.new(0, PresetsDropdown.AbsoluteSize.X, 0, #presets * 30),
+        ZIndex = 110,
+        Visible = true
+    })
+    
+    currentDropdownMenu = optionsFrame
+    
+    for i, preset in ipairs(presets) do
+        local presetButton = Create("TextButton", {
+            Parent = optionsFrame,
+            BackgroundColor3 = Color3.fromRGB(70, 70, 70),
+            BorderSizePixel = 0,
+            Position = UDim2.new(0, 0, 0, (i-1)*30),
+            Size = UDim2.new(1, 0, 0, 30),
+            Font = Enum.Font.SourceSans,
+            Text = preset.name,
+            TextColor3 = Color3.new(1, 1, 1),
+            TextSize = 12,
+            ZIndex = 111
+        })
+        
+        presetButton.MouseButton1Click:Connect(function()
+            applyPreset(preset.name)
+            closeCurrentDropdownMenu()
+        end)
+    end
+    
+    -- Закрываем при клике вне
+    local connection
+    connection = UserInputService.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+            if not optionsFrame or not optionsFrame.Parent then
+                if connection then connection:Disconnect() end
+                return
+            end
+            local mousePos = UserInputService:GetMouseLocation()
+            local framePos = optionsFrame.AbsolutePosition
+            local frameSize = optionsFrame.AbsoluteSize
+            
+            if mousePos.X < framePos.X or mousePos.X > framePos.X + frameSize.X or
+               mousePos.Y < framePos.Y or mousePos.Y > framePos.Y + frameSize.Y then
+                closeCurrentDropdownMenu()
+                if connection then connection:Disconnect() end
+            end
+        end
+    end)
+end)
+
+-- Обработчик поиска
+SearchBox.FocusLost:Connect(function()
+    local searchText = SearchBox.Text:lower()
+    if searchText == "" or searchText == t("search_settings"):lower() then
+        -- Показываем все элементы
+        for _, elementData in pairs(settingElements) do
+            elementData.element.Visible = true
+        end
+    else
+        -- Фильтруем элементы
+        for settingName, elementData in pairs(settingElements) do
+            local displayName = t(settingName):lower()
+            local description = t(settingName .. "_desc") or ""
+            description = description:lower()
+            
+            if displayName:find(searchText, 1, true) or description:find(searchText, 1, true) then
+                elementData.element.Visible = true
+            else
+                elementData.element.Visible = false
+            end
+        end
+    end
+end)
+
+-- Функция для применения темы при наведении на кнопки настроек
+local function onSettingsButtonHover()
+    TweenService:Create(SettingsButton, TweenInfo.new(0.2), {BackgroundColor3 = realconfigs.accent_color}):Play()
+end
+
+local function onSettingsButtonUnhover()
+    local theme = realconfigs.theme
+    if theme == "light" then
+        TweenService:Create(SettingsButton, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(220, 220, 220)}):Play()
+    else
+        TweenService:Create(SettingsButton, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(37, 36, 38)}):Play()
+    end
+end
+
 -------------------------------------------------------------------------------
 
 local function logthread(thread: thread)
     table.insert(running_threads,thread)
 end
 
+--- Prevents remote spam from causing lag (clears logs after `getgenv().SIMPLESPYCONFIG_MaxRemotes` or 500 remotes)
 function clean()
     local max = getgenv().SIMPLESPYCONFIG_MaxRemotes
     if not typeof(max) == "number" and math.floor(max) ~= max then
@@ -2055,12 +2219,14 @@ local function ThreadIsNotDead(thread: thread): boolean
     return not status(thread) == "dead"
 end
 
+--- Scales the ToolTip to fit containing text
 function scaleToolTip()
     local size = TextService:GetTextSize(TextLabel.Text, TextLabel.TextSize, TextLabel.Font, Vector2.new(196, math.huge))
     TextLabel.Size = UDim2.new(0, size.X, 0, size.Y)
     ToolTip.Size = UDim2.new(0, size.X + 4, 0, size.Y + 4)
 end
 
+--- Executed when the toggle button (the SimpleSpy logo) is hovered over
 function onToggleButtonHover()
     if not toggle then
         TweenService:Create(Simple, TweenInfo.new(0.5), {TextColor3 = Color3.fromRGB(252, 51, 51)}):Play()
@@ -2069,18 +2235,37 @@ function onToggleButtonHover()
     end
 end
 
+--- Executed when the toggle button is unhovered over
 function onToggleButtonUnhover()
     TweenService:Create(Simple, TweenInfo.new(0.5), {TextColor3 = Color3.fromRGB(255, 255, 255)}):Play()
 end
 
+--- Executed when the X button is hovered over
 function onXButtonHover()
     TweenService:Create(CloseButton, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(255, 60, 60)}):Play()
 end
 
+--- Executed when the X button is unhovered over
 function onXButtonUnhover()
     TweenService:Create(CloseButton, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(37, 36, 38)}):Play()
 end
 
+--- Executed when the Settings button is hovered over
+function onSettingsButtonHover()
+    TweenService:Create(SettingsButton, TweenInfo.new(0.2), {BackgroundColor3 = realconfigs.accent_color}):Play()
+end
+
+--- Executed when the Settings button is unhovered over
+function onSettingsButtonUnhover()
+    local theme = realconfigs.theme
+    if theme == "light" then
+        TweenService:Create(SettingsButton, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(220, 220, 220)}):Play()
+    else
+        TweenService:Create(SettingsButton, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(37, 36, 38)}):Play()
+    end
+end
+
+--- Toggles the remote spy method (when button clicked)
 function onToggleButtonClick()
     if toggle then
         TweenService:Create(Simple, TweenInfo.new(0.5), {TextColor3 = Color3.fromRGB(252, 51, 51)}):Play()
@@ -2090,6 +2275,7 @@ function onToggleButtonClick()
     toggleSpyMethod()
 end
 
+--- Reconnects bringBackOnResize if the current viewport changes and also connects it initially
 function connectResize()
     if not workspace.CurrentCamera then
         workspace:GetPropertyChangedSignal("CurrentCamera"):Wait()
@@ -2104,6 +2290,7 @@ function connectResize()
     end)
 end
 
+--- Brings gui back if it gets lost offscreen (connected to the camera viewport changing)
 function bringBackOnResize()
     validateSize()
     if sideClosed then
@@ -2131,6 +2318,8 @@ function bringBackOnResize()
     TweenService:Create(Background, TweenInfo.new(0.1), {Position = UDim2.new(0, currentX, 0, currentY)}):Play()
 end
 
+--- Drags gui (so long as mouse is held down)
+--- @param input InputObject
 function onBarInput(input)
     if input.UserInputType == Enum.UserInputType.MouseButton1 then
         local lastPos = UserInputService:GetMouseLocation()
@@ -2175,6 +2364,7 @@ function onBarInput(input)
     end
 end
 
+--- Fades out the table of elements (and makes them invisible), returns a function to make them visible again
 function fadeOut(elements)
     local data = {}
     for _, v in next, elements do
@@ -2224,6 +2414,7 @@ function fadeOut(elements)
     end
 end
 
+--- Expands and minimizes the gui (closed is the toggle boolean)
 function toggleMinimize(override)
     if mainClosing and not override or maximized then
         return
@@ -2250,6 +2441,7 @@ function toggleMinimize(override)
     mainClosing = false
 end
 
+--- Expands and minimizes the sidebar (sideClosed is the toggle boolean)
 function toggleSideTray(override)
     if sideClosing and not override or maximized then
         return
@@ -2277,6 +2469,7 @@ function toggleSideTray(override)
     sideClosing = false
 end
 
+--- Expands code box to fit screen for more convenient viewing
 function toggleMaximize()
     if not sideClosed and not maximized then
         maximized = true
@@ -2311,6 +2504,8 @@ function toggleMaximize()
     end
 end
 
+--- Checks if cursor is within resize range
+--- @param p Vector2
 function isInResizeRange(p)
     local relativeP = p - Background.AbsolutePosition
     local range = 5
@@ -2325,12 +2520,15 @@ function isInResizeRange(p)
     return false
 end
 
+--- Checks if cursor is within dragging range
+--- @param p Vector2
 function isInDragRange(p)
     local relativeP = p - Background.AbsolutePosition
     local topbarAS = TopBar.AbsoluteSize
     return relativeP.X <= topbarAS.X - CloseButton.AbsoluteSize.X * 3 and relativeP.X >= 0 and relativeP.Y <= topbarAS.Y and relativeP.Y >= 0 or false
 end
 
+--- Called when mouse enters SimpleSpy
 local customCursor = Create("ImageLabel",{Parent = SimpleSpy3,Visible = false,Size = UDim2.fromOffset(200, 200),ZIndex = 1e9,BackgroundTransparency = 1,Image = "",Parent = SimpleSpy3})
 function mouseEntered()
     local con = connections["SIMPLESPY_CURSOR"]
@@ -2360,6 +2558,7 @@ function mouseEntered()
     end)
 end
 
+--- Called when mouse moves
 function mouseMoved()
     local mousePos = UserInputService:GetMouseLocation() - GuiInset
     if not closed
@@ -2374,6 +2573,7 @@ function mouseMoved()
     end
 end
 
+--- Adjusts the ui elements to the 'Maximized' size
 function maximizeSize(speed)
     if not speed then
         speed = 0.05
@@ -2386,6 +2586,7 @@ function maximizeSize(speed)
     TweenService:Create(LogList, TweenInfo.new(speed), { Size = UDim2.fromOffset(LogList.AbsoluteSize.X, Background.AbsoluteSize.Y - TopBar.AbsoluteSize.Y - 18) }):Play()
 end
 
+--- Adjusts the ui elements to close the side
 function minimizeSize(speed)
     if not speed then
         speed = 0.05
@@ -2398,6 +2599,7 @@ function minimizeSize(speed)
     TweenService:Create(LogList, TweenInfo.new(speed), { Size = UDim2.fromOffset(LogList.AbsoluteSize.X, Background.AbsoluteSize.Y - TopBar.AbsoluteSize.Y - 18) }):Play()
 end
 
+--- Ensures size is within screensize limitations
 function validateSize()
     local x, y = Background.AbsoluteSize.X, Background.AbsoluteSize.Y
     local screenSize = workspace.CurrentCamera.ViewportSize
@@ -2417,6 +2619,8 @@ function validateSize()
     Background.Size = UDim2.fromOffset(x, y)
 end
 
+--- Called on user input while mouse in 'Background' frame
+--- @param input InputObject
 function backgroundUserInput(input)
     local mousePos = UserInputService:GetMouseLocation() - GuiInset
     local inResizeRange, type = isInResizeRange(mousePos)
@@ -2461,6 +2665,7 @@ function backgroundUserInput(input)
     end
 end
 
+--- Gets the player an instance is descended from
 function getPlayerFromInstance(instance)
     for _, v in next, Players:GetPlayers() do
         if v.Character and (instance:IsDescendantOf(v.Character) or instance == v.Character) then
@@ -2469,6 +2674,7 @@ function getPlayerFromInstance(instance)
     end
 end
 
+--- Runs on MouseButton1Click of an event frame
 function eventSelect(frame)
     if selected and selected.Log then
         if selected.Button then
@@ -2494,14 +2700,19 @@ function eventSelect(frame)
     end
 end
 
+--- Updates the canvas size to fit the current amount of function buttons
 function updateFunctionCanvas()
     ScrollingFrame.CanvasSize = UDim2.fromOffset(UIGridLayout.AbsoluteContentSize.X, UIGridLayout.AbsoluteContentSize.Y)
 end
 
+--- Updates the canvas size to fit the amount of current remotes
 function updateRemoteCanvas()
     LogList.CanvasSize = UDim2.fromOffset(UIListLayout.AbsoluteContentSize.X, UIListLayout.AbsoluteContentSize.Y)
 end
 
+--- Allows for toggling of the tooltip and easy setting of le description
+--- @param enable boolean
+--- @param text string
 function makeToolTip(enable, text)
     if enable and text then
         if ToolTip.Visible then
@@ -2555,6 +2766,10 @@ function makeToolTip(enable, text)
     end
 end
 
+--- Creates new function button (below codebox)
+--- @param name string
+---@param description function
+---@param onClick function
 function newButton(name, description, onClick)
     local FunctionTemplate = Create("Frame",{Name = "FunctionTemplate",Parent = ScrollingFrame,BackgroundColor3 = Color3.new(1, 1, 1),BackgroundTransparency = 1,Size = UDim2.new(0, 117, 0, 23)})
     local ColorBar = Create("Frame",{Name = "ColorBar",Parent = FunctionTemplate,BackgroundColor3 = Color3.new(1, 1, 1),BorderSizePixel = 0,Position = UDim2.new(0, 7, 0, 10),Size = UDim2.new(0, 7, 0, 18),ZIndex = 3})
@@ -2577,6 +2792,7 @@ function newButton(name, description, onClick)
     updateFunctionCanvas()
 end
 
+--- Группировка remotes по имени
 local groups = {}
 
 function newRemote(type, data)
@@ -2585,6 +2801,7 @@ function newRemote(type, data)
     local fullName = remote:GetFullName()
     local name = remote.Name
 
+    -- Разный цвет для серверных ивентов
     local isServerEvent = data.fromServer
     local color = isServerEvent and Color3.fromRGB(229, 92, 92) or realconfigs.accent_color
 
@@ -2699,6 +2916,7 @@ function newRemote(type, data)
     local g = groups[fullName]
     g.count = g.count + 1
     
+    -- Добавляем отметку серверного ивента
     local prefix = isServerEvent and "[SERVER] " or ""
     g.nameLabel.Text = prefix .. name .. " (" .. g.count .. ")"
 
@@ -2726,7 +2944,7 @@ function newRemote(type, data)
     table.insert(g.calls, log)
     table.insert(logs, log)
 
-    logFrame.MouseButton1Click:Connect(function()
+        logFrame.MouseButton1Click:Connect(function()
         local isCtrl = UserInputService:IsKeyDown(Enum.KeyCode.LeftControl) or UserInputService:IsKeyDown(Enum.KeyCode.RightControl)
         local isShift = UserInputService:IsKeyDown(Enum.KeyCode.LeftShift) or UserInputService:IsKeyDown(Enum.KeyCode.RightShift)
         
@@ -2754,12 +2972,14 @@ function newRemote(type, data)
         
         lastSelected = log
         
+        -- Обновление UI цветов
         for _, l in ipairs(logs) do
             if l.LogFrame then
                 l.LogFrame.BackgroundColor3 = table.find(selectedLogs, l) and realconfigs.accent_color or Color3.fromRGB(40, 40, 40)
             end
         end
         
+        -- Обновление кода в окне (склеиваем код всех выбранных)
         local fullCode = ""
         for i, l in ipairs(selectedLogs) do
             fullCode = fullCode .. "-- Call " .. i .. (l.data.blocked and " [BLOCKED]" or "") .. "\n" .. l.GenScript .. "\n\n"
@@ -2780,6 +3000,7 @@ function newRemote(type, data)
     updateRemoteCanvas()
 end
 
+--- Генерация скрипта
 function genScript(remote, args)
     prevTables = {}
     local gen = ""
@@ -2833,6 +3054,7 @@ function genScript(remote, args)
     return gen
 end
 
+--- value-to-string: value, string (out), level (indentation), parent table, var name, is from tovar
 local CustomGeneration = {
     Vector3 = (function()
         local temp = {}
@@ -3015,6 +3237,8 @@ function v2s(v, l, p, n, vtv, i, pt, path, tables, tI)
     return `{vtypeof}({rawtostring(v)}) --[[Generation Failure]]`
 end
 
+--- value-to-variable
+--- @param t any
 function v2v(t)
     topstr = ""
     bottomstr = ""
@@ -3047,6 +3271,17 @@ function tabletostring(tbl: table,format: boolean)
     
 end
 
+--- table-to-string
+--- @param t table
+--- @param l number
+--- @param p table
+--- @param n string
+--- @param vtv boolean
+--- @param i any
+--- @param pt table
+--- @param path string
+--- @param tables table
+--- @param tI table
 function t2s(t, l, p, n, vtv, i, pt, path, tables, tI)
     local globalIndex = table.find(getgenv(), t)
     if type(globalIndex) == "string" then
@@ -3105,6 +3340,7 @@ function t2s(t, l, p, n, vtv, i, pt, path, tables, tI)
     return s .. "}"
 end
 
+--- function-to-string
 function f2s(f)
     for k, x in next, getgenv() do
         local isgucci, gpath
@@ -3154,6 +3390,8 @@ function v2p(value, parent, path)
     return false, ""
 end
 
+--- instance-to-path
+--- @param i userdata
 function i2p(i,customgen)
     if customgen then
         return customgen
@@ -3218,6 +3456,7 @@ function i2p(i,customgen)
     end
 end
 
+--- Gets the player an instance is descended from
 function getplayer(instance)
     for _, v in next, Players:GetPlayers() do
         if v.Character and (instance:IsDescendantOf(v.Character) or instance == v.Character) then
@@ -3226,10 +3465,12 @@ function getplayer(instance)
     end
 end
 
+--- schedules the provided function (and calls it with any args after)
 function schedule(f, ...)
     table.insert(scheduled, {f, ...})
 end
 
+--- yields the current thread until the scheduler gives the ok
 function scheduleWait()
     local thread = running()
     schedule(function()
@@ -3238,6 +3479,7 @@ function scheduleWait()
     yield()
 end
 
+--- the big (well tbh small now) boi task scheduler himself, handles p much anything as quicc as possible
 local function taskscheduler()
     if not toggle then
         scheduled = {}
@@ -3260,6 +3502,7 @@ local function tablecheck(tabletocheck,instance,id)
 end
 
 function remoteHandler(data)
+    -- Проверяем настройки логирования
     if not configs.log_local_remotes and not data.fromServer then
         return
     end
@@ -3280,9 +3523,10 @@ function remoteHandler(data)
         return
     end
 
+    -- Проверка игнорированного вызова
     local callHash = getCallHash(data.remote, data.args)
     if ignoredCalls[callHash] then
-        return
+        return -- Пропускаем этот конкретный вызов
     end
 
     if configs.autoblock then
@@ -3484,6 +3728,7 @@ local function disablehooks()
     end
 end
 
+--- Toggles on and off the remote spy
 function toggleSpy()
     if not toggle then
         local oldnamecall
@@ -3510,11 +3755,13 @@ function toggleSpy()
     end
 end
 
+--- Toggles between the two remotespy methods (hookfunction currently = disabled)
 function toggleSpyMethod()
     toggleSpy()
     toggle = not toggle
 end
 
+--- Shuts down the remote spy
 local function shutdown()
     if schedulerconnect then
         schedulerconnect:Disconnect()
@@ -3538,7 +3785,7 @@ local function shutdown()
     getgenv().SimpleSpyExecuted = false
 end
 
--- Buttons
+--- Кнопки
 newButton("copy_code",
     function() return t("copy_code_desc") end,
     function()
@@ -3630,6 +3877,7 @@ newButton("clear_logs",
     end
 )
 
+-- Кнопки для исключения ремов из логов
 newButton(
     "exclude_i",
     function() return t("exclude_i_desc") end,
@@ -3646,7 +3894,7 @@ newButton(
 
 newButton(
     "exclude_n",
-    function() return t("copy_remote_desc") end,
+    function() return t("exclude_n_desc") end,
     function()
         if selected and selected.Remote then
             local name = selected.Remote.Name
@@ -3664,14 +3912,15 @@ newButton(
 
 newButton(
     "clear_blacklist",
-    function() return t("run_code_desc") end,
+    function() return t("clear_blacklist_desc") end,
     function()
         blacklist = {}
         TextLabel.Text = t("blacklist_cleared")
     end
 )
 
-newButton("ignore_event", function() return "Ignore this specific call (with arguments)" end, function()
+-- Кнопка игнорирования конкретного вызова (с аргументами)
+newButton("ignore_event", function() return "Ignore this type of call" end, function()
     if selected and selected.Remote and selected.args then
         local callHash = getCallHash(selected.Remote, selected.args)
         ignoredCalls[callHash] = true
@@ -3685,21 +3934,24 @@ newButton("ignore_event", function() return "Ignore this specific call (with arg
     end
 end)
 
+-- Кнопка очистки игнорированных вызовов
 newButton("clear_ignored_calls",
     function() return t("clear_ignored_calls_desc") end,
     function()
         ignoredCalls = {}
         TextLabel.Text = t("ignored_calls_cleared")
         
+        -- Восстанавливаем цвет для всех логов
         for _, log in ipairs(logs) do
-            if log.LogFrame and string.sub(log.LogFrame.Text, 1, 7) == "[ИГНОР]" then
-                log.LogFrame.Text = string.sub(log.LogFrame.Text, 9)
+            if log.LogFrame and string.sub(log.LogFrame.Text, 1, 9) == "[IGNORED]" then
+                log.LogFrame.Text = string.sub(log.LogFrame.Text, 11)
                 log.LogFrame.TextColor3 = Color3.new(1, 1, 1)
             end
         end
     end
 )
 
+-- Кнопки для блокировки ремов
 newButton(
     "block_i",
     function() return t("block_i_desc") end,
@@ -3716,7 +3968,7 @@ newButton(
 
 newButton(
     "block_n",
-    function() return t("function_info_desc") end,
+    function() return t("block_n_desc") end,
     function()
         if selected and selected.Remote then
             local name = selected.Remote.Name
@@ -3734,7 +3986,7 @@ newButton(
 
 newButton(
     "clear_blocklist",
-    function() return t("clear_logs_desc") end,
+    function() return t("clear_blocklist_desc") end,
     function()
         blocklist = {}
         TextLabel.Text = t("blocklist_cleared")
@@ -3760,6 +4012,7 @@ newButton("decompile",
     end
 )
 
+-- Кнопка для переключения отображения информации о функциях
 newButton(
     "disable_info",
     function() return string.format("[%s] Toggle function info (because it can cause lag in some games)", configs.funcEnabled and "ENABLED" or "DISABLED") end,
@@ -3777,6 +4030,7 @@ newButton("autoblock",
     end
 )
 
+-- Кнопка для логирования ремов, вызванных клиентом
 newButton(
     "logcheckcaller",
     function() return ("[%s] Log remotes fired by the client"):format(configs.logcheckcaller and "ENABLED" or "DISABLED") end,
@@ -3873,10 +4127,17 @@ if not getgenv().SimpleSpyExecuted then
         Simple.MouseEnter:Connect(onToggleButtonHover)
         Simple.MouseLeave:Connect(onToggleButtonUnhover)
         
+        -- Обработчики для кнопки настроек
         SettingsButton.MouseEnter:Connect(onSettingsButtonHover)
         SettingsButton.MouseLeave:Connect(onSettingsButtonUnhover)
         SettingsButton.MouseButton1Click:Connect(toggleSettings)
-        SettingsCloseButton.MouseButton1Click:Connect(toggleSettings)
+        SettingsCloseButton.MouseButton1Click:Connect(function()
+            SettingsWindow.Visible = false
+            closeCurrentDropdownMenu()
+            for k, v in pairs(realconfigs) do
+                tempSettings[k] = v
+            end
+        end)
         
         CloseButton.MouseButton1Click:Connect(shutdown)
         table.insert(connections, UserInputService.InputBegan:Connect(backgroundUserInput))
@@ -3898,8 +4159,13 @@ if not getgenv().SimpleSpyExecuted then
             }
         end))
         
+        -- Применяем настройки при запуске
         applyVisualSettings()
+        
+        -- Обновляем интерфейс
         updateInterfaceTexts()
+        
+        -- Загружаем настройки из файла
         loadSettings()
     end)
     if succeeded then
@@ -3921,6 +4187,7 @@ end
 getgenv().SimpleSpyExecuted = true
 getgenv().SimpleSpyShutdown = shutdown
 
+-- Устанавливаем горячие клавиши
 local keybinds = {
     [realconfigs.toggle_gui] = function() toggleMinimize() end,
     [realconfigs.toggle_spy] = function() onToggleButtonClick() end,
